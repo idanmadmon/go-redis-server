@@ -1,0 +1,60 @@
+[36mINFO[0m[Sun, 10 May 2020 17:58:50 +0300] Application Initializing                      [36mArch[0m=amd64 [36mNumber of CPUs[0m=8 [36mRuntime Version[0m=go1.12.5
+[36mINFO[0m[2020-05-10T18:15:01+03:00] Application Initialize                        [36mconfig[0m="{{:8000} {false} {logs}}"
+time="2020-05-10T18:18:31+03:00" level=info msg="Application Initialize" config="{{:8000} {false} {logs}}"
+time="2020-05-10T18:21:06+03:00" level=info msg="Application Initialize" config="{{:8000} {false} {logs}}"
+[36mINFO[0m[2020-05-10T18:21:30+03:00] Application Initialize                        [36mconfig[0m="{{:8000} {false} {logs}}"
+[2020-05-10 18:30:04]  INFO Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:32:40 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+time="2020-05-10 18:33:52" level=info msg="Application Initialize" config="{{:8000} {false} {logs}}"
+[36mINFO[0m[2020-05-10 18:34:19] Application Initialize                        [36mconfig[0m="{{:8000} {false} {logs}}"
+time="2020-05-10 18:35:56" level=info msg="Application Initialize" config="{{:8000} {false} {logs}}"
+[36mINFO   [0m[2020-05-10 18:36:14] Application Initialize                        [36mconfig[0m="{{:8000} {false} {logs}}"
+[36mINFO[0m[0000] Application Initialize                        [36mconfig[0m="{{:8000} {false} {logs}}"
+[36mINFO[0m[2020-05-10 18:38:11.589218] Application Initialize                        [36mconfig[0m="{{:8000} {false} {logs}}"
+[36mINFO[0m[2020-05-10 18:40:09.130789] Application Initialize                        [36mconfig[0m="{{:8000} {false} {logs}}"
+[INFO]:2020-05-10 18:41:23.427255 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:25.112749 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:29.670569 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:35.019277 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:37.703105 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:38.313475 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:38.772248 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:39.189134 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:39.620980 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:40.033877 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:40.468714 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:40.909539 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:41.334438 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:41.758303 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:42.207069 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:42.622958 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:43.064779 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:58.335971 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:58.782810 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:59.199664 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:41:59.599628 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:00.031494 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:00.415415 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:00.816342 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:01.224252 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:01.678039 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:02.073981 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:02.986577 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:03.387471 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:03.792391 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:04.208277 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:04.588262 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:05.034071 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:05.460931 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:05.904745 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:06.325659 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:06.755471 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:07.201279 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:07.596226 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:07.997154 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:08.408055 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:08.812972 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:09.225905 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:09.660707 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:10.087605 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-10 18:42:10.514428 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}

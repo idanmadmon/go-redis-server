@@ -31,17 +31,18 @@ func Execute() error {
 
 func init() {
 	rootCmd.PersistentFlags().StringVarP(&logLevel, "log-level", "l", "Info", "log level")
-	rootCmd.Flags().StringVarP(&cfgFile, "config", "c", "", "config file Default(%HOMEPATH%/.config/redis/.)")
+	rootCmd.Flags().StringVarP(&cfgFile, "config", "c", "", "config file Default(%HOMEPATH%/.config/go-redis/.)")
 }
 
 func initConfig(cmd *cobra.Command, args []string) {
 	if cfgFile == "" || strings.LastIndex(cfgFile, ".toml") != len(cfgFile) - 5 {
 		home, err := homedir.Dir()
 		exitOnErr(err)
-		cfgFile = home + "/.config/redis/config.toml"
+		cfgFile = home + "/.config/go-redis/config.toml"
 	}
 
 	var err error = nil
 	cfg, err = redis.LoadConfig(cfgFile)
 	exitOnErr(err)
+	exitOnErr(redis.InitLogger(cfg.Log.LogFolder, logLevel))
 }

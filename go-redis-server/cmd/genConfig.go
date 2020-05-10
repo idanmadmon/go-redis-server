@@ -16,7 +16,7 @@ var genConfigCmd = &cobra.Command{
 	Use:   "gen-config",
 	Short: "generating example config",
 	Long:  `generating example config
-usage: redis.exe gen-config > %HOMEPATH%/.config/redis/config.toml`,
+usage: redis.exe gen-config > %HOMEPATH%/.config/go-redis/config.toml`,
 	Run: genConfig,
 }
 

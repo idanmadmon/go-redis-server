@@ -2,7 +2,13 @@ package go_redis_server
 
 import (
 	"fmt"
+	"io"
+	"os"
+
+	"github.com/natefinch/lumberjack"
+	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
+	"github.com/t-tomalak/logrus-prefixed-formatter"
 )
 
 type (
@@ -33,4 +39,30 @@ func LoadConfig(cfgFile string) (Config, error) {
 	cfg := Config{}
 	viper.Unmarshal(&cfg)
 	return cfg, err
+}
+
+func InitLogger(dir, level string) error {
+	lvl, err := log.ParseLevel(level)
+	if err != nil {
+		return err
+	}
+	log.SetLevel(lvl)
+
+	log.SetFormatter(&prefixed.TextFormatter{
+		DisableColors: true,
+		TimestampFormat : "2006-01-02 15:04:05.000000",
+		FullTimestamp:true,
+		ForceFormatting: true,
+	})
+
+	ljack := &lumberjack.Logger{
+		Filename:   "logs/go-redis.log",
+		MaxSize:    20,		// megabytes
+		MaxBackups: 50,
+		MaxAge:     30,		//days
+		Compress:   false,	// disabled by default
+	}
+	mw := io.MultiWriter(os.Stdout, ljack)
+	log.SetOutput(mw)
+	return nil
 }
