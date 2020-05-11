@@ -10,11 +10,17 @@
 - $3\r\nkey\r\n
 - $5\r\nvalue\r\n
 
+#### set (number): ####
+- *3\r\n
+- $3\r\nset\r\n
+- $3\r\nkey\r\n
+- $4\r\n1234\r\n
+
 #### setnx: ####
 - *3\r\n
 - $5\r\nsetnx\r\n
-- $5\r\nkeynx\r\n
-- $7\r\nvaluenx\r\n
+- $3\r\nkey\r\n
+- $5\r\nvalue\r\n
 
  ####get: ####
 - *\r\n
@@ -35,6 +41,9 @@
 
 #### get: ####
 - $5\r\nvalue\r\n
+
+#### get (number): ####
+- $4\r\n1234\r\n
 
 #### get (not found): ####
 - $-1\r\n
