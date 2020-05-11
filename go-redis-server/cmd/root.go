@@ -19,7 +19,7 @@ var (
 		Long: `A simple redis server written in go, has only get and set functions.`,
 		PreRun: initConfig,
 		Run: func(cmd *cobra.Command, args []string) {
-			redis.Run(cfg)
+			exitOnErr(redis.Start(cfg))
 		},
 	}
 )

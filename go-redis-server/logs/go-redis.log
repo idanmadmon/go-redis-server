@@ -58,3 +58,28 @@ time="2020-05-10 18:35:56" level=info msg="Application Initialize" config="{{:80
 [INFO]:2020-05-10 18:42:09.660707 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
 [INFO]:2020-05-10 18:42:10.087605 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
 [INFO]:2020-05-10 18:42:10.514428 - Application Initialize config={Server:{Addr::8000} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 15:49:50.918310 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 15:49:50.924296 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-11 15:52:26.117951 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 15:52:26.123935 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-11 15:52:29.877555 - Got new request size=14
+[INFO]:2020-05-11 15:52:44.417665 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 15:52:44.424647 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-11 16:07:45.310023 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 16:07:45.316007 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-11 16:07:49.076953 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 16:07:49.082935 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-11 16:07:56.224861 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 16:07:56.230822 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-11 16:08:00.974645 - Got new request size=14
+[INFO]:2020-05-11 16:08:02.095685 - Got new request size=14
+[INFO]:2020-05-11 16:08:03.060069 - Got new request size=14
+[INFO]:2020-05-11 16:08:04.052416 - Got new request size=14
+[INFO]:2020-05-11 16:08:05.024815 - Got new request size=14
+[INFO]:2020-05-11 16:09:26.119958 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 16:09:26.124947 - Start listening host=localhost:6379 type=tcp
+[ERROR]:2020-05-11 16:09:27.249939 - Error accepting error=accept tcp 127.0.0.1:6379: use of closed network connection
+[INFO]:2020-05-11 16:09:27.249939 - Start stopping sequence
+[INFO]:2020-05-11 16:30:30.256422 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
+[INFO]:2020-05-11 16:30:30.262371 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-11 16:30:33.061886 - Start stopping sequence

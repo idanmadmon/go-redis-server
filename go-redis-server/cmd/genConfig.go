@@ -21,7 +21,7 @@ usage: redis.exe gen-config > %HOMEPATH%/.config/go-redis/config.toml`,
 }
 
 func genConfig(cmd *cobra.Command, args []string) {
-	cfg := redis.Config{Server: redis.Server{}, Redis: redis.Redis{}, Log: redis.Log{}}
+	cfg := redis.Config{Server: redis.Server{Addr: "localhost:6379", ConnType: "tcp"}, Redis: redis.Redis{}, Log: redis.Log{LogFolder: "logs"}}
 	cfgb, err := toml.Marshal(cfg)
 	exitOnErr(err)
 	fmt.Println(string(cfgb))

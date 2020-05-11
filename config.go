@@ -20,6 +20,7 @@ type (
 
 	Server struct {
 		Addr 	string `toml:"addr"`
+		ConnType string `toml:"conn_type" mapstructure:"conn_type"`
 	}
 
 	Redis struct {
