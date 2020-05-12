@@ -13,22 +13,21 @@ import (
 
 type (
 	Config struct {
-		Server	Server `toml:"server"`
-		Redis	Redis `toml:"redis"`
-		Log	Log `toml:"log"`
+		Server	Server	`toml:"server"`
+		Redis	Redis 	`toml:"redis"`
+		Log		Log 	`toml:"log"`
 	}
 
 	Server struct {
-		Addr 	string `toml:"addr"`
-		ConnType string `toml:"conn_type" mapstructure:"conn_type"`
+		Addr 		string `toml:"addr"`
+		ConnType	string `toml:"conn_type" mapstructure:"conn_type"`
 	}
 
 	Redis struct {
-		UseSSD bool `toml:"use_ssd" mapstructure:"use_ssd"`
-		DisableOverride bool `toml:"disable_override" mapstructure:"disable_override"`
-		Ping string `toml:"ping"`
-		Set string `toml:"set"`
-		Get string `toml:"get"`
+		UseSSD 				bool	`toml:"use_ssd" mapstructure:"use_ssd"`
+		DisableOverride 	bool	`toml:"disable_override" mapstructure:"disable_override"`
+		CommandsWorkers		int 	`toml:"commands_workers" mapstructure:"commands_workers"`
+		ParseWorkers		int 	`toml:"parse_workers" mapstructure:"parse_workers"`
 	}
 
 	Log struct {

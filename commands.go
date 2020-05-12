@@ -1,30 +1,59 @@
 package go_redis_server
 
 import (
-	"reflect"
+	uuid "github.com/satori/go.uuid"
 )
 
-var commands map[string]func(args []string) (string, error)
+var cmdsc chan Command
 
-type Command struct{}
+type (
+	Commands struct {
+		Cmds		map[string]func(args []*string) (string, error)
+		Cfg			Redis
+		Interrupt	*bool
+	}
 
-func setCommands() {
-	commands = make(map[string]func(args []string) (string, error), 0)
-	//TODO: think if this is the best way (get the commands from outside) or not exposing it
-	// and implement it like: commands["ping"] = PingCommand
-	commands["ping"] = reflect.ValueOf(Command{}).MethodByName(cfg.Ping).Interface().(func(args []string) (string, error))
-	commands["set"] = reflect.ValueOf(Command{}).MethodByName(cfg.Set).Interface().(func(args []string) (string, error))
-	commands["get"] = reflect.ValueOf(Command{}).MethodByName(cfg.Get).Interface().(func(args []string) (string, error))
+	Command struct {
+		id		uuid.UUID
+		data	[]*string
+	}
+)
+
+func (c *Commands) initialize() {
+	cmdsc = make(chan Command, 0)
+	c.Cmds = make(map[string]func(args []*string) (string, error), 0)
+	c.Cmds["ping"] = pingCommand
+	c.Cmds["set"] = setCommand
+	c.Cmds["get"] = getCommand
 }
 
-func (Command) PingCommand(args []string) (string, error) {
-	return "PONG", nil
+func (c *Commands) Start() error {
+	if cmdsc == nil || c.Cmds == nil {
+		c.initialize()
+	}
+
+	for i := 0; i < cfg.CommandsWorkers; i++ {
+		go c.run()
+	}
+	return nil
 }
 
-func (Command) SetCommand(args []string) (string, error) {
-	return "OK", nil
+func (c *Commands) run() {
+	for !*c.Interrupt {
+		cmd := <-cmdsc
+		r, _ := c.Cmds[*cmd.data[0]](cmd.data[1:])
+		ReplyMessage(r, cmd.id)
+	}
 }
 
-func (Command) GetCommand(args []string) (string, error) {
-	return "1234", nil
+func pingCommand(args []*string) (string, error) {
+	return "+PONG\r\n", nil
+}
+
+func setCommand(args []*string) (string, error) {
+	return "+OK\r\n", nil
+}
+
+func getCommand(args []*string) (string, error) {
+	return "$4\r\n1234\r\n", nil
 }

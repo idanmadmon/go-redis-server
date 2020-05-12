@@ -190,3 +190,10 @@ ping
 [INFO]:2020-05-12 15:48:47.427465 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
 [DEBUG]:2020-05-12 15:48:47.428421 - 3[set,key,value]
 [INFO]:2020-05-12 15:48:47.428421 - Start stopping sequence
+[INFO]:2020-05-12 18:24:18.415244 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false CommandsWorkers:1 ParseWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-12 18:24:18.422226 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-12 18:25:36.576154 - Got new request size=14
+[INFO]:2020-05-12 18:25:38.488055 - Got new request size=14
+[INFO]:2020-05-12 18:25:47.629564 - Got new request size=14
+[INFO]:2020-05-12 18:25:50.583706 - Got new request size=14
+[INFO]:2020-05-12 18:25:55.595262 - Start stopping sequence

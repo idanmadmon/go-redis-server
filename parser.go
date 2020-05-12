@@ -3,6 +3,8 @@ package go_redis_server
 import (
 	"errors"
 	"strconv"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 var (
@@ -13,20 +15,40 @@ var (
 	arraySign = '*'
 )
 
-func buildRespSimpleString(str string) string {
-	return string(simpleStringSign) + str + "\r\n"
+var parsec chan Request
+
+type (
+	Request struct {
+		id 		uuid.UUID
+		message	string
+	}
+
+	Parse struct {
+		cfg			Redis
+		Interrupt	*bool
+	}
+)
+
+func (p *Parse) Start() error {
+	if parsec == nil {
+		parsec = make(chan Request, 0)
+	}
+
+	for i := 0; i < cfg.ParseWorkers; i++ {
+		go p.run()
+	}
+	return nil
 }
 
-func buildRespError(err error) string {
-	return string(errorSign) + err.Error() + "\r\n"
-}
-
-func buildRespInteger(i int64) string {
-	return string(integerSign) + string(i) + "\r\n"
-}
-
-func buildRespBulkString(str string) string {
-	return string(bulkStringSign) + string(len(str)) + "\r\n" + str + "\r\n"
+func (p *Parse) run() {
+	for !*p.Interrupt {
+		r := <-parsec
+		cmds, err := ParseRequest(r.message)
+		if err != nil {
+			ReplyError(err, r.id)
+		}
+		cmdsc <- Command{r.id, cmds}
+	}
 }
 
 func buildRespNullBulkString() string {
