@@ -5,11 +5,19 @@ import (
 	"net"
 	"os"
 	"os/signal"
+	"sync"
 )
 
-var cfg Config
+var cfg Redis
+
+func initialize(config Config) {
+	cfg = config.Redis
+	DB = safeDB{make(map[string]string, 0), &sync.Mutex{}}
+	setCommands()
+}
 
 func Start(cfg Config) error {
+	initialize(cfg)
 	log.WithField("config", cfg).Info("Application Initialize")
 	defer stop()
 	return listen(cfg.Server.Addr, cfg.Server.ConnType)
@@ -17,7 +25,10 @@ func Start(cfg Config) error {
 
 func stop() {
 	log.Info("Start stopping sequence")
-	//TODO: start workers stop sequence
+
+	//wait for final actions to finish
+	DB.Lock()
+	DB.Unlock()
 }
 
 func listen(host, connType string) error {
