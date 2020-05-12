@@ -33,7 +33,7 @@ func buildRespNullBulkString() string {
 	return string(bulkStringSign) + "-1\r\n"
 }
 
-func parseRequest(r string) ([]*string, error) {
+func ParseRequest(r string) ([]*string, error) {
 	if err := requestValidation(r); err != nil {
 		return nil, err
 	}
@@ -129,6 +129,7 @@ func getLength(r string, i int) (int, int, error) {
 
 	n, err := strconv.Atoi(r[i+1:i+1+digits])
 	if err != nil {
+
 		return 0, 0, errors.New("bad index, length not integer, length: " + r[i+1:i+1+digits])
 	}
 

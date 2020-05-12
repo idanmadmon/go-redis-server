@@ -21,7 +21,7 @@ func Start(cfg Config) error {
 	initialize(cfg)
 	log.WithField("config", cfg).Info("Application Initialize")
 	defer stop()
-	c, err := parseRequest("*3\r\n$3\r\nset\r\n$3\r\nkey\r\n$5\r\nvalue\r\n")
+	c, err := ParseRequest("*3\r\n$3\r\nset\r\n$3\r\nkey\r\n$5\r\nvalue\r\n")
 	if err != nil {
 		log.Debug(err)
 	} else {
