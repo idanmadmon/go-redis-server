@@ -96,3 +96,97 @@ time="2020-05-10 18:35:56" level=info msg="Application Initialize" config="{{:80
 [INFO]:2020-05-12 11:45:20.768552 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand} Log:{LogFolder:logs}}
 [INFO]:2020-05-12 11:45:20.774536 - Start listening host=localhost:6379 type=tcp
 [INFO]:2020-05-12 11:45:22.539814 - Start stopping sequence
+[INFO]:2020-05-12 14:32:50.691045 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 14:32:50.692040 - bad index, length not integer
+[INFO]:2020-05-12 14:32:50.692040 - Start stopping sequence
+[INFO]:2020-05-12 14:34:13.521524 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 14:34:13.521524 - bad index, length not integer, length: 
+[INFO]:2020-05-12 14:34:13.522521 - Start stopping sequence
+[INFO]:2020-05-12 14:35:01.287778 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 14:35:01.287778 - 
+$4
+ping
+
+[DEBUG]:2020-05-12 14:35:01.288775 - 0
+[DEBUG]:2020-05-12 14:35:01.288775 - bad index, length not integer, length: 
+[INFO]:2020-05-12 14:35:01.288775 - Start stopping sequence
+[INFO]:2020-05-12 14:36:21.319744 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 14:36:21.320741 - 
+$4
+ping
+
+[DEBUG]:2020-05-12 14:36:21.320741 - 1
+[DEBUG]:2020-05-12 14:36:21.320741 - 
+ping
+
+[DEBUG]:2020-05-12 14:36:21.320741 - 1
+[INFO]:2020-05-12 14:36:21.321736 - Start stopping sequence
+[INFO]:2020-05-12 14:37:23.166192 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[INFO]:2020-05-12 14:37:23.167189 - Start stopping sequence
+[INFO]:2020-05-12 14:38:14.704358 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 14:38:14.704358 - 0
+[INFO]:2020-05-12 14:38:14.705356 - Start stopping sequence
+[INFO]:2020-05-12 14:39:27.934514 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 14:39:27.935510 - 1 1
+[DEBUG]:2020-05-12 14:39:27.935510 - 1 4
+[INFO]:2020-05-12 14:39:27.935510 - Start stopping sequence
+[INFO]:2020-05-12 14:41:16.799367 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 14:41:16.800364 - bad index, can't use array as value type
+[INFO]:2020-05-12 14:41:16.800364 - Start stopping sequence
+[INFO]:2020-05-12 14:42:04.552656 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 14:42:04.552656 - *1
+$4
+ping
+
+[DEBUG]:2020-05-12 14:42:04.552656 - bad index, can't use array as value type
+[INFO]:2020-05-12 14:42:04.553653 - Start stopping sequence
+[INFO]:2020-05-12 14:43:15.220663 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[INFO]:2020-05-12 14:43:15.220663 - Start stopping sequence
+[INFO]:2020-05-12 15:26:18.908317 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:26:18.909314 - Fuck1
+[INFO]:2020-05-12 15:26:18.909314 - Start stopping sequence
+[INFO]:2020-05-12 15:27:03.948376 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:27:03.949373 - 1
+[INFO]:2020-05-12 15:27:03.949373 - Start stopping sequence
+[INFO]:2020-05-12 15:27:36.575119 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:27:36.576116 - <nil>
+[INFO]:2020-05-12 15:27:36.576116 - Start stopping sequence
+[INFO]:2020-05-12 15:29:07.927311 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:29:07.927311 - <nil>
+[DEBUG]:2020-05-12 15:29:07.928308 - 112
+[DEBUG]:2020-05-12 15:29:07.928308 - ping
+[INFO]:2020-05-12 15:29:07.928308 - Start stopping sequence
+[INFO]:2020-05-12 15:30:19.042124 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:30:19.043120 - <nil>
+[DEBUG]:2020-05-12 15:30:19.043120 - 112
+[DEBUG]:2020-05-12 15:30:19.043120 - ping
+[DEBUG]:2020-05-12 15:30:19.043120 - 0
+[INFO]:2020-05-12 15:30:19.044119 - Start stopping sequence
+[INFO]:2020-05-12 15:31:14.776069 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:31:14.777066 - <nil>
+[DEBUG]:2020-05-12 15:31:14.777066 - 112
+[DEBUG]:2020-05-12 15:31:14.777066 - ping
+[DEBUG]:2020-05-12 15:31:14.777066 - 0
+[INFO]:2020-05-12 15:31:14.778064 - Start stopping sequence
+[INFO]:2020-05-12 15:32:27.365936 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:32:27.366934 - <nil>
+[DEBUG]:2020-05-12 15:32:27.366934 - 112
+[DEBUG]:2020-05-12 15:32:27.366934 - ping
+[DEBUG]:2020-05-12 15:32:27.366934 - 0
+[DEBUG]:2020-05-12 15:32:27.367931 - <nil>
+[INFO]:2020-05-12 15:32:27.367931 - Start stopping sequence
+[INFO]:2020-05-12 15:36:18.769148 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:36:18.770146 - 0xc00012c0f0: 
+[INFO]:2020-05-12 15:36:18.770146 - Start stopping sequence
+[INFO]:2020-05-12 15:37:54.298629 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:37:54.299627 - [ping]
+[INFO]:2020-05-12 15:37:54.299627 - Start stopping sequence
+[INFO]:2020-05-12 15:38:35.756756 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:38:35.757752 - 1[ping]
+[INFO]:2020-05-12 15:38:35.757752 - Start stopping sequence
+[INFO]:2020-05-12 15:40:28.441393 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:40:28.441393 - 3[set,key,value]
+[INFO]:2020-05-12 15:40:28.441393 - Start stopping sequence
+[INFO]:2020-05-12 15:48:47.427465 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand Set:SetCommand Get:GetCommand} Log:{LogFolder:logs}}
+[DEBUG]:2020-05-12 15:48:47.428421 - 3[set,key,value]
+[INFO]:2020-05-12 15:48:47.428421 - Start stopping sequence

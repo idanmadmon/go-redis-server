@@ -5,6 +5,7 @@ import (
 	"net"
 	"os"
 	"os/signal"
+	"strconv"
 	"sync"
 )
 
@@ -20,7 +21,14 @@ func Start(cfg Config) error {
 	initialize(cfg)
 	log.WithField("config", cfg).Info("Application Initialize")
 	defer stop()
-	return listen(cfg.Server.Addr, cfg.Server.ConnType)
+	c, err := parseRequest("*3\r\n$3\r\nset\r\n$3\r\nkey\r\n$5\r\nvalue\r\n")
+	if err != nil {
+		log.Debug(err)
+	} else {
+		log.Debug(strconv.Itoa(len(c)) + "[" + *c[0] + "," + *c[1] + "," + *c[2] + "]")
+	}
+	return nil
+	//return listen(cfg.Server.Addr, cfg.Server.ConnType)
 }
 
 func stop() {
