@@ -83,3 +83,16 @@ time="2020-05-10 18:35:56" level=info msg="Application Initialize" config="{{:80
 [INFO]:2020-05-11 16:30:30.256422 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false} Log:{LogFolder:logs}}
 [INFO]:2020-05-11 16:30:30.262371 - Start listening host=localhost:6379 type=tcp
 [INFO]:2020-05-11 16:30:33.061886 - Start stopping sequence
+[DEBUG]:2020-05-12 11:43:11.677785 - FUCK1
+[DEBUG]:2020-05-12 11:43:11.680777 - FUCK2
+[DEBUG]:2020-05-12 11:44:33.341432 - FUCK1
+[DEBUG]:2020-05-12 11:44:33.342385 - FUCK2
+[DEBUG]:2020-05-12 11:44:33.342385 - pingCommand
+[DEBUG]:2020-05-12 11:45:20.766557 - FUCK1
+[DEBUG]:2020-05-12 11:45:20.767552 - FUCK2
+[DEBUG]:2020-05-12 11:45:20.767552 - PingCommand
+[DEBUG]:2020-05-12 11:45:20.767552 - FUCK3
+[DEBUG]:2020-05-12 11:45:20.767552 - PONG<nil>
+[INFO]:2020-05-12 11:45:20.768552 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false Ping:PingCommand} Log:{LogFolder:logs}}
+[INFO]:2020-05-12 11:45:20.774536 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-12 11:45:22.539814 - Start stopping sequence

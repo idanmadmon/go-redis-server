@@ -26,6 +26,9 @@ type (
 	Redis struct {
 		UseSSD bool `toml:"use_ssd" mapstructure:"use_ssd"`
 		DisableOverride bool `toml:"disable_override" mapstructure:"disable_override"`
+		Ping string `toml:"ping"`
+		Set string `toml:"set"`
+		Get string `toml:"get"`
 	}
 
 	Log struct {
