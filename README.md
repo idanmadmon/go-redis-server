@@ -1,5 +1,6 @@
 # go-redis-server
 - Follow the drawio design
+- check bench on workers and then try to call the function (without worker) and check which one is faster
 - change package name
 - check if all workers stopped when interrupt
 - change parse to know the type (like integer), also to something more readable like struct request that has command as type (since it has to be)

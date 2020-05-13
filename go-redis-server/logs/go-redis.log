@@ -347,3 +347,18 @@ value
 [INFO]:2020-05-13 11:29:23.733503 - Got new request size=33
 [INFO]:2020-05-13 11:29:23.733503 - Got new request size=24
 [INFO]:2020-05-13 11:29:33.323868 - Start stopping sequence
+[INFO]:2020-05-13 11:44:55.696197 - Application Initialize config={Host:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 11:44:55.703179 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 11:44:59.564969 - Got new request size=14
+[INFO]:2020-05-13 11:44:59.565976 - Got new request size=33
+[INFO]:2020-05-13 11:44:59.566964 - Got new request size=22
+[INFO]:2020-05-13 11:44:59.567961 - Got new request size=23
+[INFO]:2020-05-13 11:44:59.568959 - Got new request size=39
+[INFO]:2020-05-13 11:44:59.568959 - Got new request size=24
+[INFO]:2020-05-13 11:44:59.568959 - Got new request size=35
+[INFO]:2020-05-13 11:44:59.569954 - Got new request size=25
+[INFO]:2020-05-13 11:44:59.569954 - Got new request size=31
+[INFO]:2020-05-13 11:44:59.569954 - Got new request size=22
+[INFO]:2020-05-13 11:44:59.570951 - Got new request size=33
+[INFO]:2020-05-13 11:44:59.570951 - Got new request size=24
+[INFO]:2020-05-13 11:45:02.071405 - Start stopping sequence

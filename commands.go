@@ -4,7 +4,6 @@ import (
 	"errors"
 	uuid "github.com/satori/go.uuid"
 	log "github.com/sirupsen/logrus"
-	"strconv"
 )
 
 var cmdsc chan Command
@@ -63,7 +62,7 @@ func (c *Commands) run() {
 }
 
 func (c *Commands) pingCommand(args []string) (string, error) {
-	return "+PONG\r\n", nil
+	return buildRespSimpleString("PONG"), nil
 }
 
 func (c *Commands) setCommand(args []string) (string, error) {
@@ -76,7 +75,7 @@ func (c *Commands) setCommand(args []string) (string, error) {
 		return "", err
 	}
 
-	return "+OK\r\n", nil
+	return buildRespSimpleString("OK"), nil
 }
 
 func (c *Commands) getCommand(args []string) (string, error) {
@@ -90,6 +89,5 @@ func (c *Commands) getCommand(args []string) (string, error) {
 		return buildRespNullBulkString(), nil
 	}
 
-	result := "$" + strconv.Itoa(len(val)) + "\r\n" + val + "\r\n"
-	return result, nil
+	return buildRespBulkString(val), nil
 }

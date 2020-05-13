@@ -58,7 +58,7 @@ func ReplyMessage(r string, id uuid.UUID) {
 }
 
 func ReplyError(err error, id uuid.UUID) {
-	repliesc <- Reply{id, "-" + err.Error() + "\r\n"}
+	repliesc <- Reply{id, buildRespError(err)}
 }
 
 func ReplyNULL(id uuid.UUID) {
