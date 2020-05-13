@@ -15,23 +15,22 @@ var (
 	arraySign = '*'
 )
 
-var parsec chan Request
+var parsec chan Message
 
 type (
-	Request struct {
+	Message struct {
 		id 		uuid.UUID
 		message	string
 	}
 
 	Parse struct {
-		cfg			Redis
-		Interrupt	*bool
+		Worker
 	}
 )
 
 func (p *Parse) Start() error {
 	if parsec == nil {
-		parsec = make(chan Request, 0)
+		parsec = make(chan Message, 0)
 	}
 
 	for i := 0; i < cfg.ParseWorkers; i++ {
@@ -46,6 +45,7 @@ func (p *Parse) run() {
 		cmds, err := ParseRequest(r.message)
 		if err != nil {
 			ReplyError(err, r.id)
+			continue
 		}
 		cmdsc <- Command{r.id, cmds}
 	}

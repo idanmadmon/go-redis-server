@@ -2,6 +2,7 @@ package go_redis_server
 
 import (
 	uuid "github.com/satori/go.uuid"
+	log "github.com/sirupsen/logrus"
 )
 
 var cmdsc chan Command
@@ -9,8 +10,7 @@ var cmdsc chan Command
 type (
 	Commands struct {
 		Cmds		map[string]func(args []*string) (string, error)
-		Cfg			Redis
-		Interrupt	*bool
+		Worker
 	}
 
 	Command struct {
@@ -41,7 +41,13 @@ func (c *Commands) Start() error {
 func (c *Commands) run() {
 	for !*c.Interrupt {
 		cmd := <-cmdsc
-		r, _ := c.Cmds[*cmd.data[0]](cmd.data[1:])
+		f, ok := c.Cmds[*cmd.data[0]]
+		if !ok {
+			log.WithField("command", *cmd.data[0]).Error("unknown command")
+			continue
+		}
+
+		r, _ := f(cmd.data[1:])
 		ReplyMessage(r, cmd.id)
 	}
 }

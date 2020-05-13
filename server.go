@@ -1,6 +1,7 @@
 package go_redis_server
 
 import (
+	uuid "github.com/satori/go.uuid"
 	log "github.com/sirupsen/logrus"
 	"net"
 	"os"
@@ -9,6 +10,11 @@ import (
 )
 
 var cfg Redis
+
+type Worker struct {
+	Cfg			Redis
+	Interrupt	*bool
+}
 
 func initialize(config Config) {
 	cfg = config.Redis
@@ -19,13 +25,19 @@ func Start(cfg Config) error {
 	initialize(cfg)
 	log.WithField("config", cfg).Info("Application Initialize")
 	interrupted := false
-	h := Handler{cfg.Redis,&interrupted}
-	p := Parse{cfg.Redis,&interrupted}
+	//maybe use
+	w := Worker{cfg.Redis,&interrupted}
+	clients := make(map[uuid.UUID]net.Conn, 0)
+	h := RequestHandle{&clients, w}
+	h.Start()
+	p := Parse{w}
 	p.Start()
-	c := Commands{nil, cfg.Redis,&interrupted}
+	c := Commands{nil, w}
 	c.Start()
+	r := ReplyHandle{&clients, w}
+	r.Start()
 	defer stop()
-	return listen(cfg.Server.Addr, cfg.Server.ConnType, h, &interrupted)
+	return listen(cfg.Server.Addr, cfg.Server.ConnType, &interrupted)
 }
 
 func stop() {
@@ -36,7 +48,7 @@ func stop() {
 	DB.Unlock()
 }
 
-func listen(host, connType string, h Handler, interrupted *bool) error {
+func listen(host, connType string, interrupted *bool) error {
 	l, err := net.Listen(connType, host)
 	if err != nil {
 		log.WithError(err).Fatal("Error listening")
@@ -45,7 +57,7 @@ func listen(host, connType string, h Handler, interrupted *bool) error {
 	defer l.Close()
 
 	log.WithField("host", host).WithField("type", connType).Info("Start listening")
-	go accept(l, h, interrupted)
+	go accept(l, interrupted)
 	waitForInterrupt(l, interrupted)
 	return nil
 }
@@ -58,7 +70,7 @@ func waitForInterrupt(l net.Listener, interrupted *bool) {
 	l.Close()
 }
 
-func accept(l net.Listener, h Handler, interrupted *bool) {
+func accept(l net.Listener, interrupted *bool) {
 	for {
 		conn, err := l.Accept()
 		if err != nil {
@@ -68,6 +80,6 @@ func accept(l net.Listener, h Handler, interrupted *bool) {
 			return
 		}
 
-		go h.HandleRequest(conn)
+		requestc <- Request{conn}
 	}
 }

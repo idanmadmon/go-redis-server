@@ -197,3 +197,16 @@ ping
 [INFO]:2020-05-12 18:25:47.629564 - Got new request size=14
 [INFO]:2020-05-12 18:25:50.583706 - Got new request size=14
 [INFO]:2020-05-12 18:25:55.595262 - Start stopping sequence
+[INFO]:2020-05-13 09:36:44.149848 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestsWorkers:0 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 09:36:44.156832 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 09:37:09.971811 - Got new request size=14
+[INFO]:2020-05-13 09:37:09.988803 - 2bfdefc5-94e4-11ea-b844-588a5a0e6465
+[INFO]:2020-05-13 10:15:53.524876 - Start stopping sequence
+[INFO]:2020-05-13 10:17:41.836250 - Application Initialize config={Server:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 10:17:41.842233 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 10:17:53.389367 - Got new request size=14
+[INFO]:2020-05-13 10:17:55.159634 - Got new request size=14
+[INFO]:2020-05-13 10:17:56.286621 - Got new request size=14
+[INFO]:2020-05-13 10:17:57.197229 - Got new request size=14
+[INFO]:2020-05-13 10:17:58.083817 - Got new request size=14
+[INFO]:2020-05-13 10:18:10.931475 - Start stopping sequence

@@ -26,8 +26,10 @@ type (
 	Redis struct {
 		UseSSD 				bool	`toml:"use_ssd" mapstructure:"use_ssd"`
 		DisableOverride 	bool	`toml:"disable_override" mapstructure:"disable_override"`
+		RequestWorkers		int 	`toml:"request_workers" mapstructure:"request_workers"`
 		CommandsWorkers		int 	`toml:"commands_workers" mapstructure:"commands_workers"`
 		ParseWorkers		int 	`toml:"parse_workers" mapstructure:"parse_workers"`
+		ReplyWorkers		int 	`toml:"reply_workers" mapstructure:"reply_workers"`
 	}
 
 	Log struct {
