@@ -286,3 +286,64 @@ ping
 [INFO]:2020-05-13 10:49:45.629597 - Got new request size=24
 [DEBUG]:2020-05-13 10:49:45.631591 - Fuck YES
 [INFO]:2020-05-13 10:49:48.392216 - Start stopping sequence
+[INFO]:2020-05-13 11:10:06.367149 - Application Initialize config={Host:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 11:10:06.373135 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 11:10:09.730162 - Got new request size=14
+[INFO]:2020-05-13 11:10:09.731159 - Got new request size=33
+[INFO]:2020-05-13 11:10:09.732156 - Got new request size=22
+[INFO]:2020-05-13 11:10:09.732156 - Got new request size=23
+[INFO]:2020-05-13 11:10:09.733152 - Got new request size=39
+[INFO]:2020-05-13 11:10:09.733152 - Got new request size=24
+[INFO]:2020-05-13 11:10:09.734151 - Got new request size=35
+[INFO]:2020-05-13 11:10:09.734151 - Got new request size=25
+[INFO]:2020-05-13 11:10:09.734151 - Got new request size=31
+[INFO]:2020-05-13 11:10:09.735148 - Got new request size=22
+[INFO]:2020-05-13 11:10:09.735148 - Got new request size=33
+[INFO]:2020-05-13 11:10:09.735148 - Got new request size=24
+[INFO]:2020-05-13 11:10:13.024355 - Start stopping sequence
+[INFO]:2020-05-13 11:19:51.095081 - Application Initialize config={Host:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 11:19:51.102064 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 11:19:54.305535 - Got new request size=14
+[INFO]:2020-05-13 11:19:54.306580 - Got new request size=33
+[INFO]:2020-05-13 11:19:54.307530 - Got new request size=22
+[INFO]:2020-05-13 11:20:17.366891 - Start stopping sequence
+[INFO]:2020-05-13 11:21:06.818709 - Application Initialize config={Host:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 11:21:06.825686 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 11:21:07.626544 - Start stopping sequence
+[INFO]:2020-05-13 11:21:12.731897 - Application Initialize config={Host:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 11:21:12.738884 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 11:21:19.648409 - Got new request size=14
+[INFO]:2020-05-13 11:21:19.649406 - Got new request size=33
+[INFO]:2020-05-13 11:21:19.649406 - Got new request size=22
+[DEBUG]:2020-05-13 11:21:19.650405 - $
+value
+
+[INFO]:2020-05-13 11:21:48.038522 - Start stopping sequence
+[INFO]:2020-05-13 11:22:30.807197 - Application Initialize config={Host:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 11:22:30.814178 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 11:22:31.953159 - Start stopping sequence
+[INFO]:2020-05-13 11:22:33.408282 - Application Initialize config={Host:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 11:22:33.415227 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 11:22:35.980371 - Got new request size=14
+[INFO]:2020-05-13 11:22:35.981367 - Got new request size=33
+[INFO]:2020-05-13 11:22:35.981367 - Got new request size=22
+[DEBUG]:2020-05-13 11:22:35.982365 - $5
+value
+
+[INFO]:2020-05-13 11:22:35.982365 - Got new request size=23
+[INFO]:2020-05-13 11:22:52.468296 - Start stopping sequence
+[INFO]:2020-05-13 11:29:19.342241 - Application Initialize config={Host:{Addr:localhost:6379 ConnType:tcp} Redis:{UseSSD:false DisableOverride:false RequestWorkers:1 CommandsWorkers:1 ParseWorkers:1 ReplyWorkers:1} Log:{LogFolder:logs}}
+[INFO]:2020-05-13 11:29:19.348225 - Start listening host=localhost:6379 type=tcp
+[INFO]:2020-05-13 11:29:23.727532 - Got new request size=14
+[INFO]:2020-05-13 11:29:23.728518 - Got new request size=33
+[INFO]:2020-05-13 11:29:23.729522 - Got new request size=22
+[INFO]:2020-05-13 11:29:23.730512 - Got new request size=23
+[INFO]:2020-05-13 11:29:23.730512 - Got new request size=39
+[INFO]:2020-05-13 11:29:23.731509 - Got new request size=24
+[INFO]:2020-05-13 11:29:23.731509 - Got new request size=35
+[INFO]:2020-05-13 11:29:23.732505 - Got new request size=25
+[INFO]:2020-05-13 11:29:23.732505 - Got new request size=31
+[INFO]:2020-05-13 11:29:23.732505 - Got new request size=22
+[INFO]:2020-05-13 11:29:23.733503 - Got new request size=33
+[INFO]:2020-05-13 11:29:23.733503 - Got new request size=24
+[INFO]:2020-05-13 11:29:33.323868 - Start stopping sequence

@@ -51,12 +51,12 @@ func (p *Parse) run() {
 	}
 }
 
-func ParseRequest(r string) ([]*string, error) {
+func ParseRequest(r string) ([]string, error) {
 	if err := requestValidation(r); err != nil {
 		return nil, err
 	}
 
-	cmds := make([]*string, 0)
+	cmds := make([]string, 0)
 	index := 0
 	toContinue := 0
 	for i, c := range r {
@@ -84,7 +84,7 @@ func requestValidation(r string) error {
 	return nil
 }
 
-func parseTypes(r string, c int32, i int, cmds *[]*string, toContinue, index *int) error {
+func parseTypes(r string, c int32, i int, cmds *[]string, toContinue, index *int) error {
 	switch c {
 	case simpleStringSign:
 		err := parseSimpleTypes(r, i, cmds, toContinue, index)
@@ -126,14 +126,14 @@ func parseTypes(r string, c int32, i int, cmds *[]*string, toContinue, index *in
 	return nil
 }
 
-func parseSimpleTypes(r string, i int, cmds *[]*string, toContinue, index *int) error {
+func parseSimpleTypes(r string, i int, cmds *[]string, toContinue, index *int) error {
 	n, err := getLengthUntilCRLF(r[i+1:])
 	if err != nil {
 		return err
 	}
 
 	val := r[i+1:i+1+n]
-	(*cmds)[*index] = &val //escape pointer analysis
+	(*cmds)[*index] = val //escape pointer analysis
 	*toContinue = 2+n //value + CRLF
 	*index = *index+1
 	return nil
@@ -154,18 +154,18 @@ func getLength(r string, i int) (int, int, error) {
 	return digits, n, nil
 }
 
-func parseBulkType(r string, i int, cmds *[]*string, toContinue, index *int) error {
+func parseBulkType(r string, i int, cmds *[]string, toContinue, index *int) error {
 	digits, n, err := getLength(r, i)
 	if err != nil {
 		return err
 	}
 
 	if n == -1 {
-		(*cmds)[*index] = nil
+		(*cmds)[*index] = ""
 		*toContinue = 4 //-1 + CRLF
 	} else {
 		val := r[i+4:i+4+n]
-		(*cmds)[*index] = &val //escape pointer analysis
+		(*cmds)[*index] = val //escape pointer analysis
 		*toContinue = digits+4+n //count + CRLF + value + CRLF
 	}
 
@@ -173,13 +173,13 @@ func parseBulkType(r string, i int, cmds *[]*string, toContinue, index *int) err
 	return nil
 }
 
-func parseArrayType(r string, i int, cmds *[]*string, toContinue *int) error {
+func parseArrayType(r string, i int, cmds *[]string, toContinue *int) error {
 	digits, n, err := getLength(r, i)
 	if err != nil {
 		return err
 	}
 
-	cmdsVal := make([]*string, n)
+	cmdsVal := make([]string, n)
 	*cmds = cmdsVal
 
 	*toContinue = digits+2 //count + CRLF

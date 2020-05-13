@@ -4,30 +4,31 @@ import (
 	"errors"
 	uuid "github.com/satori/go.uuid"
 	log "github.com/sirupsen/logrus"
+	"strconv"
 )
 
 var cmdsc chan Command
 
 type (
 	Commands struct {
-		Cmds	map[string]func(args []*string) (string, error)
+		Cmds	map[string]func(args []string) (string, error)
 		db		*DB
 		Worker
 	}
 
 	Command struct {
 		id		uuid.UUID
-		data	[]*string
+		data	[]string
 	}
 )
 
 func (c *Commands) initialize() {
 	cmdsc = make(chan Command, 0)
-	c.Cmds = make(map[string]func(args []*string) (string, error), 0)
-	c.Cmds["ping"] = pingCommand
-	c.Cmds["set"] = setCommand
-	c.Cmds["setnx"] = setCommand //TODO
-	c.Cmds["get"] = getCommand
+	c.Cmds = make(map[string]func(args []string) (string, error), 0)
+	c.Cmds["ping"] = c.pingCommand
+	c.Cmds["set"] = c.setCommand
+	c.Cmds["setnx"] = c.setCommand //TODO
+	c.Cmds["get"] = c.getCommand
 }
 
 func (c *Commands) Start() error {
@@ -44,26 +45,51 @@ func (c *Commands) Start() error {
 func (c *Commands) run() {
 	for !*c.Interrupt {
 		cmd := <-cmdsc
-		f, ok := c.Cmds[*cmd.data[0]]
+		f, ok := c.Cmds[cmd.data[0]]
 		if !ok {
-			log.WithField("command", *cmd.data[0]).Error("unknown command")
-			ReplyError(errors.New("unknown command '" + *cmd.data[0] + "'"), cmd.id)
+			log.WithField("command", cmd.data[0]).Error("unknown command")
+			ReplyError(errors.New("unknown command '" + cmd.data[0] + "'"), cmd.id)
 			continue
 		}
 
-		r, _ := f(cmd.data[1:])
+		r, err := f(cmd.data[1:])
+		if err != nil {
+			ReplyError(err, cmd.id)
+			continue
+		}
+
 		ReplyMessage(r, cmd.id)
 	}
 }
 
-func pingCommand(args []*string) (string, error) {
+func (c *Commands) pingCommand(args []string) (string, error) {
 	return "+PONG\r\n", nil
 }
 
-func setCommand(args []*string) (string, error) {
+func (c *Commands) setCommand(args []string) (string, error) {
+	if len(args) != 2 {
+		return "", errors.New("bad index")
+	}
+
+	err := c.db.set(args[0], args[1])
+	if err != nil {
+		return "", err
+	}
+
 	return "+OK\r\n", nil
 }
 
-func getCommand(args []*string) (string, error) {
-	return "$4\r\n1234\r\n", nil
+func (c *Commands) getCommand(args []string) (string, error) {
+	if len(args) != 1 {
+		return "", errors.New("bad index")
+	}
+
+	val, err := c.db.get(args[0])
+	if err != nil {
+		//key not found
+		return buildRespNullBulkString(), nil
+	}
+
+	result := "$" + strconv.Itoa(len(val)) + "\r\n" + val + "\r\n"
+	return result, nil
 }

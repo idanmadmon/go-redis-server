@@ -29,7 +29,7 @@ func (db *DB) get(key string) (string, error) {
 	return val, nil
 }
 
-func (db *DB) set(key, val string) error {
+func (db *DB) set(key string, val string) error {
 	if db.data == nil {
 		return errors.New("DB isn't initialized")
 	}
