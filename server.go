@@ -30,9 +30,9 @@ type (
 
 func (s *Server) initialize(config Config, interrupted *bool) {
 	s.cfg = config.Redis
-	w := Worker{cfg,interrupted}
+	w := Worker{s.cfg,interrupted}
 	clients := make(map[uuid.UUID]net.Conn, 0)
-	db := DB{safeMap{make(map[string]string, 0), &sync.Mutex{}}}
+	db := DB{safeMap{make(map[string]string, 0), &sync.Mutex{}}, s.cfg}
 	s.db = &db
 	s.h = RequestHandle{&clients, w}
 	s.p = Parse{w}

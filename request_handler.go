@@ -30,7 +30,7 @@ func (r *RequestHandle) Start() error {
 		requestc = make(chan Request, 0)
 	}
 
-	for i := 0; i < cfg.RequestWorkers; i++ {
+	for i := 0; i < r.Cfg.RequestWorkers; i++ {
 		go r.run()
 	}
 	return nil

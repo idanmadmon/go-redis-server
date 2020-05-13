@@ -33,7 +33,7 @@ func (p *Parse) Start() error {
 		parsec = make(chan Message, 0)
 	}
 
-	for i := 0; i < cfg.ParseWorkers; i++ {
+	for i := 0; i < p.Cfg.ParseWorkers; i++ {
 		go p.run()
 	}
 	return nil

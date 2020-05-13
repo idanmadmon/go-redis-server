@@ -13,6 +13,7 @@ type (
 
 	DB struct {
 		safeMap
+		Cfg Redis
 	}
 )
 
@@ -33,7 +34,7 @@ func (db *DB) set(key, val string) error {
 		return errors.New("DB isn't initialized")
 	}
 
-	if cfg.DisableOverride && db.isExist(key) {
+	if db.Cfg.DisableOverride && db.isExist(key) {
 		return errors.New("key already exists")
 	}
 

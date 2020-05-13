@@ -31,7 +31,7 @@ func (r *ReplyHandle) Start() error {
 		repliesc = make(chan Reply, 0)
 	}
 
-	for i := 0; i < cfg.ReplyWorkers; i++ {
+	for i := 0; i < r.Cfg.ReplyWorkers; i++ {
 		go r.run()
 	}
 	return nil

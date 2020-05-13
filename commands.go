@@ -35,7 +35,7 @@ func (c *Commands) Start() error {
 		c.initialize()
 	}
 
-	for i := 0; i < cfg.CommandsWorkers; i++ {
+	for i := 0; i < c.Cfg.CommandsWorkers; i++ {
 		go c.run()
 	}
 	return nil
