@@ -42,7 +42,6 @@ func (r *ReplyHandle) run() {
 		rep := <- repliesc
 		c, ok := (*r.Clients)[rep.id]
 		if ok {
-			delete(*r.Clients, rep.id)
 			HandleReply(rep.message, c)
 		} else {
 			log.Error("got id without connection")
@@ -52,7 +51,6 @@ func (r *ReplyHandle) run() {
 
 func HandleReply(msg string, conn net.Conn){
 	conn.Write([]byte(msg))
-	conn.Close()
 }
 
 func ReplyMessage(r string, id uuid.UUID) {
@@ -61,4 +59,8 @@ func ReplyMessage(r string, id uuid.UUID) {
 
 func ReplyError(err error, id uuid.UUID) {
 	repliesc <- Reply{id, "-" + err.Error() + "\r\n"}
+}
+
+func ReplyNULL(id uuid.UUID) {
+	repliesc <- Reply{id, buildRespNullBulkString()}
 }

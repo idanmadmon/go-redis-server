@@ -1,51 +1,63 @@
 package go_redis_server
 
 import (
-	uuid "github.com/satori/go.uuid"
-	log "github.com/sirupsen/logrus"
 	"net"
 	"os"
 	"os/signal"
 	"sync"
+
+	uuid "github.com/satori/go.uuid"
+	log "github.com/sirupsen/logrus"
 )
 
-var cfg Redis
 
-type Worker struct {
-	Cfg			Redis
-	Interrupt	*bool
-}
+type (
+	Worker struct {
+		Cfg			Redis
+		Interrupt	*bool
+	}
 
-func initialize(config Config) {
-	cfg = config.Redis
-	DB = safeDB{make(map[string]string, 0), &sync.Mutex{}}
-}
+	Server struct {
+		cfg	Redis
+		db	*DB
 
-func Start(cfg Config) error {
-	initialize(cfg)
-	log.WithField("config", cfg).Info("Application Initialize")
-	interrupted := false
-	//maybe use
-	w := Worker{cfg.Redis,&interrupted}
+		h	RequestHandle
+		p	Parse
+		c	Commands
+		r	ReplyHandle
+	}
+)
+
+func (s *Server) initialize(config Config, interrupted *bool) {
+	s.cfg = config.Redis
+	w := Worker{cfg,interrupted}
 	clients := make(map[uuid.UUID]net.Conn, 0)
-	h := RequestHandle{&clients, w}
-	h.Start()
-	p := Parse{w}
-	p.Start()
-	c := Commands{nil, w}
-	c.Start()
-	r := ReplyHandle{&clients, w}
-	r.Start()
-	defer stop()
-	return listen(cfg.Server.Addr, cfg.Server.ConnType, &interrupted)
+	db := DB{safeMap{make(map[string]string, 0), &sync.Mutex{}}}
+	s.db = &db
+	s.h = RequestHandle{&clients, w}
+	s.p = Parse{w}
+	s.c = Commands{nil, &db, w}
+	s.r = ReplyHandle{&clients, w}
 }
 
-func stop() {
+func (s *Server) Start(cfg Config) error {
+	interrupted := false
+	s.initialize(cfg, &interrupted)
+	log.WithField("config", cfg).Info("Application Initialize")
+	s.h.Start()
+	s.p.Start()
+	s.c.Start()
+	s.r.Start()
+	defer s.Stop()
+	return listen(cfg.Host.Addr, cfg.Host.ConnType, &interrupted)
+}
+
+func (s *Server) Stop() {
 	log.Info("Start stopping sequence")
 
 	//wait for final actions to finish
-	DB.Lock()
-	DB.Unlock()
+	s.db.Lock()
+	s.db.Unlock()
 }
 
 func listen(host, connType string, interrupted *bool) error {

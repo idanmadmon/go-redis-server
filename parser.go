@@ -51,10 +51,6 @@ func (p *Parse) run() {
 	}
 }
 
-func buildRespNullBulkString() string {
-	return string(bulkStringSign) + "-1\r\n"
-}
-
 func ParseRequest(r string) ([]*string, error) {
 	if err := requestValidation(r); err != nil {
 		return nil, err

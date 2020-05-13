@@ -13,12 +13,12 @@ import (
 
 type (
 	Config struct {
-		Server	Server	`toml:"server"`
+		Host	Host	`toml:"host"`
 		Redis	Redis 	`toml:"redis"`
 		Log		Log 	`toml:"log"`
 	}
 
-	Server struct {
+	Host struct {
 		Addr 		string `toml:"addr"`
 		ConnType	string `toml:"conn_type" mapstructure:"conn_type"`
 	}

@@ -1,6 +1,7 @@
 package go_redis_server
 
 import (
+	"errors"
 	uuid "github.com/satori/go.uuid"
 	log "github.com/sirupsen/logrus"
 )
@@ -9,7 +10,8 @@ var cmdsc chan Command
 
 type (
 	Commands struct {
-		Cmds		map[string]func(args []*string) (string, error)
+		Cmds	map[string]func(args []*string) (string, error)
+		db		*DB
 		Worker
 	}
 
@@ -24,6 +26,7 @@ func (c *Commands) initialize() {
 	c.Cmds = make(map[string]func(args []*string) (string, error), 0)
 	c.Cmds["ping"] = pingCommand
 	c.Cmds["set"] = setCommand
+	c.Cmds["setnx"] = setCommand //TODO
 	c.Cmds["get"] = getCommand
 }
 
@@ -44,6 +47,7 @@ func (c *Commands) run() {
 		f, ok := c.Cmds[*cmd.data[0]]
 		if !ok {
 			log.WithField("command", *cmd.data[0]).Error("unknown command")
+			ReplyError(errors.New("unknown command '" + *cmd.data[0] + "'"), cmd.id)
 			continue
 		}
 

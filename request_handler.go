@@ -39,26 +39,43 @@ func (r *RequestHandle) Start() error {
 func (r *RequestHandle) run() {
 	for !*r.Interrupt {
 		conn := <-requestc
-		msg, id, err := HandleRequest(conn)
+		id := uuid.Must(uuid.NewV4())
 		(*r.Clients)[id] = conn
+		go r.HandleRequest(id, conn)
+	}
+}
+
+func (r *RequestHandle) HandleRequest(id uuid.UUID, conn net.Conn) {
+	var err error = nil
+	msg := ""
+	for err == nil{
+		msg, err = readRequest(conn)
 		if err != nil {
 			ReplyError(err, id)
 			continue
 		}
-		parsec <- msg
+		parsec <- Message{id, msg}
 	}
+
+	conn.Close()
+	delete(*r.Clients,id)
 }
 
-func HandleRequest(conn net.Conn) (Message, uuid.UUID, error){
-	id := uuid.Must(uuid.NewV4())
+func readRequest(conn net.Conn) (string, error){
+	r := ""
+	bytesToRead := 1024
+	reqLen := bytesToRead
+	var err error = nil
 
-	buf := make([]byte, 1024)
-	reqLen, err := conn.Read(buf)
-	if err != nil {
-		log.WithError(err).Error("Error reading request")
-		return Message{}, id, err
+	for reqLen == bytesToRead {
+		buf := make([]byte, bytesToRead)
+		reqLen, err = conn.Read(buf)
+		if err != nil {
+			return "", err
+		}
+		r += string(buf)
 	}
 
 	log.WithField("size", reqLen).Info("Got new request")
-	return Message{id, string(buf)}, id, nil
+	return r, nil
 }

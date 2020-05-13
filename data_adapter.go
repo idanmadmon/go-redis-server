@@ -5,45 +5,49 @@ import (
 	"sync"
 )
 
-type safeDB struct {
-	data map[string]string
-	*sync.Mutex
-}
+type (
+	safeMap struct {
+		data map[string]string
+		*sync.Mutex
+	}
 
-var DB safeDB
+	DB struct {
+		safeMap
+	}
+)
 
-func get(key string) (string, error) {
-	if DB.data == nil {
+func (db *DB) get(key string) (string, error) {
+	if db.data == nil {
 		return "", errors.New("DB isn't initialized")
 	}
 
-	val, ok := DB.data[key]
+	val, ok := db.data[key]
 	if !ok {
 		return "", errors.New("key not found")
 	}
 	return val, nil
 }
 
-func set(key, val string) error {
-	if DB.data == nil {
+func (db *DB) set(key, val string) error {
+	if db.data == nil {
 		return errors.New("DB isn't initialized")
 	}
 
-	if cfg.DisableOverride && isExist(key) {
+	if cfg.DisableOverride && db.isExist(key) {
 		return errors.New("key already exists")
 	}
 
-	DB.Lock()
-	DB.data[key] = val
-	DB.Unlock()
+	db.Lock()
+	db.data[key] = val
+	db.Unlock()
 	return nil
 }
 
-func isExist(key string) bool {
-	if DB.data == nil {
+func (db *DB) isExist(key string) bool {
+	if db.data == nil {
 		return false
 	}
 
-	_, ok := DB.data[key]
+	_, ok := db.data[key]
 	return ok
 }
